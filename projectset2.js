@@ -17,10 +17,10 @@ form.addEventListener('submit', function(e){
     if (bmi < 18.6) {
         result.innerHTML = `<span>Your BMI is: ${bmi} which comes in <span class = "category-UW">Under Weight</span> category</span>`
     }
-    if (bmi > 18.6 || bmi < 24.9) {
+    else if (bmi > 18.6 || bmi < 24.9) {
         result.innerHTML = `<span>Your BMI is: ${bmi} which comes in <span class = "category-NR">Normal Range</span> category</span>`
     }
-    if (bmi > 24.9) {
+    else if (bmi > 24.9) {
         result.innerHTML = `<span>Your BMI is: ${bmi} which comes in <span class = "category-OW">Over Weight</span> category</span>`
     }
 }
