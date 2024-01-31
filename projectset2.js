@@ -13,29 +13,17 @@ form.addEventListener('submit', function(e){
         result.innerHTML = `Please give a valid weight ${weight} is not valid`;
     } else {
         const bmi = (weight / ((height * height) / 10000)).toFixed(2);
-        // result.innerHTML = `<span>Your BMI is: ${bmi}</span>`
-    if (bmi < 18.6) {
-        result.innerHTML = `<span>Your BMI is: ${bmi} which comes in <span class = "category-UW">Under Weight</span> category</span>`
+        
+              let category = '';
+
+        if (bmi < 18.6) {
+            category = 'Under Weight';
+        } else if (bmi >= 18.6 && bmi <= 24.9) {
+            category = 'Normal Range';
+        } else {
+            category = 'Over Weight';
+        }
+
+        result.innerHTML = `Your BMI is: ${bmi} which comes in ${category} category`;
     }
-    else if (bmi > 18.6 || bmi < 24.9) {
-        result.innerHTML = `<span>Your BMI is: ${bmi} which comes in <span class = "category-NR">Normal Range</span> category</span>`
-    }
-    else if (bmi > 24.9) {
-        result.innerHTML = `<span>Your BMI is: ${bmi} which comes in <span class = "category-OW">Over Weight</span> category</span>`
-    }
-}
-})
-//     // switch (bmi) {
-//     //     case bmi < 18.6:
-//     //         result.innerHTML = `<span>Your BMI is: ${bmi} which comes in Under Weight category</span>`
-//     //         break;
-//     //         case bmi > 18.6 || bmi < 24.9:
-//     //             result.innerHTML = `<span>Your BMI is: ${bmi} which comes in Normal Range category</span>`
-//     //         break;
-//     //         case bmi > 24.9:
-//     //             result.innerHTML = `<span>Your BMI is: ${bmi} which comes in Over Weight category</span>`
-//     //         break;
-    
-//     //     default:
-//     //         break;
-//     // }}
+});
